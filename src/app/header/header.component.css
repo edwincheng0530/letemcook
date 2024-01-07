@@ -1,0 +1,54 @@
+#header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-left: 100px;
+    margin-right: 100px;
+    /* border: 1px green solid; */
+}
+
+#header-left {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.header-left-logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    /* border: 1px black solid; */
+}
+
+#header-left a:hover, #sign_in {
+    color: white;
+    cursor: pointer;
+    background-color: #3e87e6;
+    border-radius: 10px;
+}
+
+.link {
+    padding: 15px 30px 15px 30px;
+}
+
+
+#sign_in {
+    color: white;
+    font-size: 16px;
+    width: 80px;
+    height: 35px;
+    background-color: #3e87e6;
+    border: 1px gray solid;
+    border-radius: 10px;
+}
+
+#sign_in:hover {
+    background-color: gray;
+}
+
+.logo-knife {
+    height: 36px;
+    width: auto;
+}

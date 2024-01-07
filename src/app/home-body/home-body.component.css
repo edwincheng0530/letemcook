@@ -1,0 +1,31 @@
+#home_body_container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    /* border: 1px black solid; */
+}
+
+.home_body_text_container {
+    width: 500px;
+
+    /* border: 1px red solid; */
+}
+
+.text_title {
+    font-size: 70px;
+    margin-bottom: 10px;
+}
+
+.text_body {
+    font-size: 20px;
+}
+
+.cook {
+    height: 380px;
+    width: auto;
+
+    /* border: 1px green solid; */
+}
