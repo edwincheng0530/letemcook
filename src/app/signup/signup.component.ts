@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-home-body',
+  selector: 'app-signup',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './home-body.component.html',
-  styleUrl: './home-body.component.css'
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
 })
-export class HomeBodyComponent {
+export class SignupComponent {
 
 }

@@ -1,0 +1,30 @@
+#body {
+    background-color: #e3e2dc;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    background-color: white;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.knife {
+    height: 28px;
+}
+
+.form-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
