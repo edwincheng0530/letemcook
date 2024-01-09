@@ -4,3 +4,13 @@ body {
     /* padding: 25px; */
     font-family: sans-serif;
 }
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 10px 20px 20px 20px;
+    border-radius: 10px;
+    width: 180px;
+    height: 250px;
+}
