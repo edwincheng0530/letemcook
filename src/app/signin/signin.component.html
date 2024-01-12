@@ -12,7 +12,6 @@
                     <br>
                     <input type="submit" value="Sign In">
                 </div>
-                <!-- <div>error</div> -->
             </form>
             <div id="signin_container">
                 <p class="signin_blurb">Don't have an account?</p>
@@ -20,4 +19,8 @@
             </div>
         </div>
     </div>
+</div>
+
+<div *ngFor="let user of users$ | async">
+    <span>{{user.email}}: {{user.password}}</span>
 </div>

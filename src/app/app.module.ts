@@ -1,7 +1,10 @@
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from './app.routes';
+
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
@@ -17,7 +20,8 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule, RouterModule.forRoot(routes)
+    BrowserModule, RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
