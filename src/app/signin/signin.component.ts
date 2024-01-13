@@ -21,12 +21,14 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
 export class SigninComponent implements OnInit{
   users$!: Observable<User[]>;
   form: FormGroup
+  valid: boolean
 
   constructor(private router: Router, private userService: UsersService) {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required])
     })
+    this.valid = false;
   }
 
   ngOnInit(): void {
@@ -40,8 +42,13 @@ export class SigninComponent implements OnInit{
         // Handle successful login (e.g., navigate to a new page)
         console.log('Login successful:', response);
         if(response) {
+          this.userService.setUser(response);
           this.router.navigate([""]);
+          this.valid = false;
+        } else {
+          this.valid = true;
         }
+
       }),
       catchError((error: HttpErrorResponse) => {
         // Handle login error (e.g., display an error message)
@@ -55,24 +62,4 @@ export class SigninComponent implements OnInit{
     )
     .subscribe();
   }
-
-  // loginForm(): void {
-  //   this.userService.login(this.form.value.email, this.form.value.password)
-  //   .pipe(
-  //     switchMap(response => {
-  //       console.log('User successfully logged in:', response);
-  //       // Additional logic if needed
-  //       return this.userService.fetchAll(); // Assuming you want to fetch users after creating one
-  //     }),
-  //     catchError(error => {
-  //       console.error('Error logging in user:', error);
-  //       // Handle error or display a message to the user
-  //       throw error; // Rethrow the error to propagate it to the next error handler
-  //     })
-  //   )
-  //   .subscribe(users => {
-  //     // Handle the result of the fetchAll() operation if needed
-  //     console.log('Fetched users:', users);
-  //   });
-  // }
 }

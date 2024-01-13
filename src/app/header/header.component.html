@@ -5,12 +5,15 @@
             <img src="../assets/knife.png" alt="knife" class="logo-knife">
         </div>
         <div>
-            <a class="link">Home</a>
+            <a class="link" routerLink="">Home</a>
             <a class="link">About</a>
             <a class="link">Contact</a>
+            <a *ngIf="isLoggedIn()" routerLink="/recipes" class="link">Recipes</a>
+            <a *ngIf="!isLoggedIn()" routerLink="/signin" class="link">Recipes</a>
         </div>
     </div>
     <div id="header-right">
-        <button routerLink="signin" id="sign_in">Sign In</button>
+        <button *ngIf="isLoggedIn()" (click)="logout()" class="log_sign">Logout</button>
+        <button *ngIf="!isLoggedIn()" routerLink="/signin" class="log_sign">Sign In</button>
     </div>
 </div>

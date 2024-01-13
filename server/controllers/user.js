@@ -1,5 +1,6 @@
-const User = require('../models/user')
-const bcrypt = require('bcrypt')
+const User = require('../models/user');
+const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 exports.getAllUsers = async (req, res, next) => {
     try {
@@ -30,8 +31,8 @@ exports.login = async (req, res, next) => {
     console.log('HI IM IN THE SERVER');
     try {
       const [userRows] = await User.findByEmail(email);
-      console.log(userRows);
-      console.log(userRows.length);
+      // console.log(userRows);
+      // console.log(userRows.length);
       if (userRows.length === 0) {
         return res.status(401).json({ error: 'Invalid credentials' });
       }
@@ -40,8 +41,8 @@ exports.login = async (req, res, next) => {
       const isPasswordValid = await bcrypt.compare(password, user.password);
   
       if (isPasswordValid) {
-        // You might generate a token or set a session here, depending on your authentication strategy
-        return res.status(200).json({ message: 'Login successful', user });
+        const token = jwt.sign({userId: user.email, email: user.email}, 'cookiesaregreat', {expiresIn: '1h'});
+        return res.status(200).json({ message: 'Login successful', user, token });
       } else {
         return res.status(401).json({ error: 'Invalid credentials' });
       }

@@ -9,10 +9,10 @@
                 <div class="form-info">
                     <input formControlName="email" type="text" name="email" placeholder="Email">
                     <input formControlName="password" type="password" name="password" placeholder="Password">
-                    <br>
                     <input [disabled]="form.invalid" type="submit" value="Sign In">
                 </div>
                 <ul class="error_container">
+                    <li *ngIf="valid">Email doesn't exist or password is incorrect</li>
                     <li *ngIf="form.controls['email'] && form.controls['email'].invalid && form.controls['email'].touched">Email must be valid</li>
                     <li *ngIf="form.controls['password'] && form.controls['password'].invalid && form.controls['password'].touched">Password cannot be empty</li>
                 </ul>
