@@ -1,4 +1,5 @@
 const db = require ('../util/database');
+const bcrypt = require('bcrypt');
 
 module.exports = class User {
     constructor(email, password) {
@@ -10,7 +11,12 @@ module.exports = class User {
         return db.execute('SELECT * FROM users');
     }
 
-    static post(email, password) {
-        return db.execute('INSERT INTO users (email, password) VALUES (?, ?)', [email, password]);
+    static async post(email, password) {
+        const hashedPassword = await bcrypt.hash(password, 10);
+        return db.execute('INSERT INTO users (email, password) VALUES (?, ?)', [email, hashedPassword]);
+    }
+
+    static findByEmail(email) {
+        return db.execute('SELECT * FROM users WHERE email = ?', [email]);
     }
 };

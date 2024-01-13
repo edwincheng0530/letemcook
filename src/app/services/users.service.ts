@@ -12,6 +12,7 @@ import { ErrorHandlerService } from './error-handler.service';
 })
 export class UsersService {
   private url = "http://localhost:3000/users/"
+  private loginUrl = 'http://localhost:3000/login/'
   httpOptions: { headers: HttpHeaders } = {
     headers: new HttpHeaders({ "Content-Type": "application/json"})
   }
@@ -31,5 +32,10 @@ export class UsersService {
   post(email: string, password: string): Observable<any> {
     return this.http.post<any>(this.url, {email: email, password: password}, this.httpOptions)
     .pipe(catchError(this.errorHandlerService.handleError<any>("post")));
+  }
+
+  login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(this.loginUrl, {email: email, password: password}, this.httpOptions)
+    .pipe(catchError(this.errorHandlerService.handleError<any>("login")))
   }
 }

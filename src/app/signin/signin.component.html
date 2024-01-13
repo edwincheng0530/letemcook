@@ -5,13 +5,17 @@
             <img src="../assets/knife.png" alt="knife" class="knife">
         </div>
         <div class="info_sign_container">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="loginForm()">
                 <div class="form-info">
-                    <input type="text" name="email" placeholder="Email">
-                    <input type="password" name="password" placeholder="Password">
+                    <input formControlName="email" type="text" name="email" placeholder="Email">
+                    <input formControlName="password" type="password" name="password" placeholder="Password">
                     <br>
-                    <input type="submit" value="Sign In">
+                    <input [disabled]="form.invalid" type="submit" value="Sign In">
                 </div>
+                <ul class="error_container">
+                    <li *ngIf="form.controls['email'] && form.controls['email'].invalid && form.controls['email'].touched">Email must be valid</li>
+                    <li *ngIf="form.controls['password'] && form.controls['password'].invalid && form.controls['password'].touched">Password cannot be empty</li>
+                </ul>
             </form>
             <div id="signin_container">
                 <p class="signin_blurb">Don't have an account?</p>
