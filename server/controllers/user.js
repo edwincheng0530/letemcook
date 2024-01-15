@@ -28,11 +28,8 @@ exports.postUser = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
     const { email, password } = req.body;
-    console.log('HI IM IN THE SERVER');
     try {
       const [userRows] = await User.findByEmail(email);
-      // console.log(userRows);
-      // console.log(userRows.length);
       if (userRows.length === 0) {
         return res.status(401).json({ error: 'Invalid credentials' });
       }

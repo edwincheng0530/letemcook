@@ -1,0 +1,14 @@
+<app-header></app-header>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div id="recipe_container">
+        <div class="title_container">
+            <input formControlName="title" id="title" name="title" placeholder="Recipe Name">
+            <span class="error" *ngIf="form.controls['title'] && form.controls['title'].invalid && form.controls['title'].touched">- Title cannot be empty</span>
+        </div>
+        <div class="info_container">
+            <textarea formControlName="recipe" id="recipe" name="recipe" placeholder="Your very own recipe, your way"></textarea>
+            <span class="error" *ngIf="form.controls['recipe'] && form.controls['recipe'].invalid && form.controls['recipe'].touched">- Recipe cannot be empty</span>    
+        </div>
+        <input [disabled]="form.invalid" type="submit" value="Upload Recipe" class="submit">
+    </div>
+</form>

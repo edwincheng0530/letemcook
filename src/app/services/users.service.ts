@@ -11,8 +11,8 @@ import { ErrorHandlerService } from './error-handler.service';
   providedIn: 'root'
 })
 export class UsersService {
-  private url = "http://localhost:3000/users/"
-  private loginUrl = 'http://localhost:3000/login/'
+  private url = "http://localhost:3000/users/";
+  private loginUrl = 'http://localhost:3000/login/';
 
   private logged_user: string;
   private token: string;
@@ -27,12 +27,12 @@ export class UsersService {
   }
 
   private getUserFromLocalStorage(): any {
-    console.log(localStorage.getItem('user') || '');
+    // console.log(localStorage.getItem('user') || '');
     return localStorage.getItem('user') || '';
   }
 
   private getTokenFromLocalStorage(): string {
-    console.log(localStorage.getItem('userToken') || '')
+    // console.log(localStorage.getItem('userToken') || '')
     return localStorage.getItem('userToken') || '';
   }
 
@@ -57,7 +57,7 @@ export class UsersService {
   }
 
   setUser(response: any): void {
-    this.logged_user = response.user;
+    this.logged_user = response.user.email;
     this.token = response.token;
     localStorage.setItem('userToken', this.token);
     localStorage.setItem('user', this.logged_user);
@@ -68,6 +68,10 @@ export class UsersService {
     this.token = '';
     localStorage.removeItem('userToken');
     localStorage.removeItem('user');
+  }
+
+  getEmail(): string {
+    return this.logged_user;
   }
 
   isLoggedIn(): boolean {

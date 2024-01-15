@@ -42,6 +42,7 @@ export class SigninComponent implements OnInit{
         // Handle successful login (e.g., navigate to a new page)
         console.log('Login successful:', response);
         if(response) {
+          console.log('wtf is response ', response);
           this.userService.setUser(response);
           this.router.navigate([""]);
           this.valid = false;

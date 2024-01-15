@@ -1,2 +1,14 @@
 <app-header></app-header>
-<h2>Your Recipes</h2>
+<div id="recipes_container">
+    <div id="title_container">
+        <h2 class="recipe_title">Your Recipes</h2>
+        <span routerLink='/new_recipe' class="add_recipe">+</span>
+    </div>
+    <div *ngFor="let recipe of recipes$ | async">
+        <div class="single_recipe">
+            <p class="recipe">{{recipe.title}}</p>
+            <button>edit</button>
+            <button>delete</button>
+        </div>
+    </div>
+</div>
