@@ -11,7 +11,19 @@ module.exports = class Recipe {
         return db.execute('SELECT * FROM recipe WHERE userEmail = ?', [userEmail]);
     }
 
+    static getRecipe(id) {
+        return db.execute('SELECT * FROM recipe WHERE idrecipe = ?', [id]);
+    }
+
+    static updateRecipe(id, title, recipe) {
+        return db.execute('UPDATE recipe SET title = ?, recipe = ? WHERE idrecipe = ?', [title, recipe, id]);
+    }
+
     static post(userEmail, title, recipe) {
         return db.execute('INSERT INTO recipe (userEmail, title, recipe) VALUES (?, ?, ?)', [userEmail, title, recipe]);
+    }
+
+    static deleteRecipe(id) {
+        return db.execute('DELETE FROM recipe WHERE idrecipe = ?', [id]);
     }
 };

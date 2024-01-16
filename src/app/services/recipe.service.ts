@@ -36,4 +36,26 @@ export class RecipeService {
     .pipe(catchError(this.errorHandlerService.handleError<any>("post")));
   } 
 
+  updateRecipe(id: number, title: string, recipe: string): Observable<any> {
+    return this.http.put<any>(this.url, {id: id, title: title, recipe: recipe}, this.httpOptions)
+    .pipe(catchError(this.errorHandlerService.handleError<any>("update")));
+  }
+
+  getRecipe(id: number) {
+    const new_url = `${this.url}/edit?id=${id}`
+    return this.http.get<Recipe[]>(new_url, { responseType: "json"})
+    .pipe(
+      tap((_) => console.log('got recipe')),
+      catchError(
+        this.errorHandlerService.handleError<Recipe[]>("getRecipe", [])
+      )
+    )
+  }
+
+  deleteRecipe(id: number): Observable<any> {
+    const new_url = `${this.url}?id=${id}`
+    return this.http.delete<any>(new_url, this.httpOptions)
+    .pipe(catchError(this.errorHandlerService.handleError<any>("delete")));
+  }
+
 }

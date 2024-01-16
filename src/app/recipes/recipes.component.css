@@ -33,7 +33,7 @@
     border-radius: 50%;
 }
 
-.add_recipe:hover {
+.add_recipe:hover, .edit:hover {
     background-color: gray;
     cursor: pointer;
 }
@@ -43,5 +43,32 @@
 }
 
 .single_recipe {
-    /* display: flex; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#edit_delete {
+    display: flex;
+    gap: 5px;
+}
+
+.edit, .delete {
+    font-size: 12px;
+    color: white;
+    border: none;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.edit {
+    background-color: #3e87e6;
+}
+
+.delete {
+    background-color: red;
+}
+
+.delete:hover {
+    cursor: pointer;
 }

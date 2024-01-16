@@ -5,6 +5,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { NewRecipeComponent } from './new-recipe/new-recipe.component';
+import { EditRecipeComponent } from './edit-recipe/edit-recipe.component';
 
 // export const routes: Routes = [];
 export const routes: Routes = [
@@ -13,5 +14,6 @@ export const routes: Routes = [
     {path: 'register', component: SignupComponent},
     {path: 'signin', component: SigninComponent},
     {path: 'recipes', component: RecipesComponent},
-    {path: 'new_recipe', component: NewRecipeComponent}
+    {path: 'new_recipe', component: NewRecipeComponent},
+    {path: 'recipes/:id/edit', component: EditRecipeComponent}
 ]
