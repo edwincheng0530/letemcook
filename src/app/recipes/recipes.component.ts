@@ -46,14 +46,8 @@ export class RecipesComponent {
     )
     .subscribe(recipe => {
       console.log('Deleted recipe:', recipe);
+      this.recipes$ = this.recipeService.fetchAll(this.userService.getEmail());
     });
-    // const email = this.userService.getEmail();
-    // this.recipes$= this.recipeService.fetchAll(email);
   }
 
 }
-
-// deleteRecipe(idrecipe: number): void {
-//   this.recipes$ = this.recipeService.deleteRecipe(idrecipe)
-//   .pipe(tap(() => (this.recipes$ = this.recipeService.fetchAll(this.userService.getEmail()))));
-// }

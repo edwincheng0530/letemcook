@@ -45,7 +45,7 @@ export class NewRecipeComponent {
       )
       .subscribe(recipe => {
         console.log('Created recipe:', recipe);
+        this.router.navigate(["/recipes"]);
       });
-    this.router.navigate(["/recipes"]);
   }
 }

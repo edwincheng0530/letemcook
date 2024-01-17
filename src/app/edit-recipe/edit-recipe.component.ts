@@ -64,8 +64,8 @@ export class EditRecipeComponent {
     )
     .subscribe(recipe => {
       console.log('Updated recipe:', recipe);
+      this.router.navigate(["/recipes"]);
     });
-  this.router.navigate(["/recipes"]);
   }
 
 }
