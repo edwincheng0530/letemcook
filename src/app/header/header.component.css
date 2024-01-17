@@ -18,8 +18,10 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
 
-    /* border: 1px black solid; */
+.header-left-logo:hover {
+    cursor: pointer;
 }
 
 #header-left a:hover, #sign_in {

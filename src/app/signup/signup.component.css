@@ -13,6 +13,10 @@
     gap: 5px;
 }
 
+.logo:hover {
+    cursor: pointer;
+}
+
 .knife {
     height: 28px;
 }
