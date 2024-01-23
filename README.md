@@ -1,27 +1,20 @@
-# Cook
+# LetEmCook
+This site allows users to easily store and create recipes, from beginner cook to expert chef, everyone is welcome.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
-## Development server
+## Features
+- **User Authentication**: Allows users to create accounts, log in, and log out securely.
+- **Recipe Creation**: Users have a simple UI to name and create their own recipes.
+  - Recipes can be edited and deleted
+- **User Session**: User data and session is effectively saved by using JSON Web Tokens
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Independent Deployment
+- nodemon server/index.js
+- ng serve
 
-## Code scaffolding
+<img width="1511" alt="image" src="https://github.com/edwincheng0530/letemcook/assets/101299734/1d006333-f326-4d88-8285-a213e00195e3">
+<img width="1511" alt="image" src="https://github.com/edwincheng0530/fake_so/assets/101299734/bfd813d7-3854-4b1c-bedb-cd6a4b4af8d7">
+<img width="1512" alt="image" src="https://github.com/edwincheng0530/fake_so/assets/101299734/9dfb5db9-b357-446c-929e-dd3b9f3a5866">
+<img width="1510" alt="image" src="https://github.com/edwincheng0530/letemcook/assets/101299734/8198c8a1-0962-477d-8264-28229407d6e0">
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
