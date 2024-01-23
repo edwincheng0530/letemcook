@@ -15,6 +15,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 <img width="1511" alt="image" src="https://github.com/edwincheng0530/letemcook/assets/101299734/1d006333-f326-4d88-8285-a213e00195e3">
 <img width="1511" alt="image" src="https://github.com/edwincheng0530/fake_so/assets/101299734/bfd813d7-3854-4b1c-bedb-cd6a4b4af8d7">
+<img width="1510" alt="image" src="https://github.com/edwincheng0530/letemcook/assets/101299734/bca42587-88ef-4b45-ac4c-bd3ec407adbe">
 <img width="1512" alt="image" src="https://github.com/edwincheng0530/fake_so/assets/101299734/9dfb5db9-b357-446c-929e-dd3b9f3a5866">
 <img width="1510" alt="image" src="https://github.com/edwincheng0530/letemcook/assets/101299734/8198c8a1-0962-477d-8264-28229407d6e0">
 
