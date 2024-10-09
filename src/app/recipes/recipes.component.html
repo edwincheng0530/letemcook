@@ -14,3 +14,8 @@
         </div>
     </div>
 </div>
+
+<app-confirm-dialog *ngIf="showModal" 
+                    (confirmed)="onConfirmDelete()" 
+                    (canceled)="onCancelDelete()">
+</app-confirm-dialog>
