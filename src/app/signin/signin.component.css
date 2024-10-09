@@ -46,6 +46,7 @@
     flex-direction: column;
     justify-content: space-between;
     flex: 1 1 auto;
+    margin-top: 12px;
 }
 
 input.ng-invalid.ng-touched {

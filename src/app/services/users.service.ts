@@ -27,12 +27,16 @@ export class UsersService {
   }
 
   private getUserFromLocalStorage(): any {
-    // console.log(localStorage.getItem('user') || '');
+    if(typeof window == 'undefined') {
+      return '';
+    }
     return localStorage.getItem('user') || '';
   }
 
   private getTokenFromLocalStorage(): string {
-    // console.log(localStorage.getItem('userToken') || '')
+    if(typeof window == 'undefined') {
+      return '';  
+    }
     return localStorage.getItem('userToken') || '';
   }
 
