@@ -10,6 +10,7 @@ import { HeaderComponent } from './header/header.component';
 import { HomeBodyComponent } from './home-body/home-body.component';
 import { HomeAboutComponent } from './home-about/home-about.component';
 import { FooterComponent } from './footer/footer.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FooterComponent } from './footer/footer.component';
     HeaderComponent,
     HomeBodyComponent,
     HomeAboutComponent,
-    FooterComponent
+    FooterComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule, RouterModule.forRoot(routes),
