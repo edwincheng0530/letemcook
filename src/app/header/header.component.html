@@ -5,9 +5,9 @@
             <img src="../assets/knife.png" alt="knife" class="logo-knife">
         </div>
         <div>
-            <a class="link" routerLink="">Home</a>
-            <a class="link">About</a>
-            <a class="link">Contact</a>
+            <a class="link" routerLink="/">Home</a>
+            <a class="link" routerLink="/" [queryParams]="{section: 'about'}">About</a>
+            <a class="link" routerLink="/" [queryParams]="{section: 'contact'}">Contact</a>
             <a *ngIf="isLoggedIn()" routerLink="/recipes" class="link">Recipes</a>
             <a *ngIf="!isLoggedIn()" routerLink="/signin" class="link">Recipes</a>
         </div>
