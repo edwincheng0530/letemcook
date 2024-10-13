@@ -5,6 +5,7 @@ import { RouterOutlet, RouterModule } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { HomeBodyComponent } from '../home-body/home-body.component';
 import { HomeAboutComponent } from '../home-about/home-about.component';
+import { HomeContactComponent } from '../home-contact/home-contact.component';
 import { FooterComponent } from '../footer/footer.component';
 
 @Component({
@@ -15,7 +16,9 @@ import { FooterComponent } from '../footer/footer.component';
     HeaderComponent, 
     HomeBodyComponent,
     HomeAboutComponent,
-    FooterComponent],
+    FooterComponent,
+    HomeContactComponent
+  ],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
