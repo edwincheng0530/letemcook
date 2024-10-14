@@ -1,7 +1,7 @@
 #recipe_container {
     display: flex;
     flex-direction: column;
-    margin: 10px 200px 0px 200px;
+    margin: -10px 200px 0px 200px;
 }
 
 
@@ -20,6 +20,7 @@
 
 #title {
     font-size: 50px;
+    border-style: none;
 }
 
 #recipe {

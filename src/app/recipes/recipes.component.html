@@ -6,9 +6,8 @@
     </div>
     <div *ngFor="let recipe of recipes$ | async">
         <div class="single_recipe">
-            <p *ngIf="recipe" class="recipe">{{recipe.title}}</p>
+            <p *ngIf="recipe" (click)="editRecipe(recipe.idrecipe)" class="recipe">{{recipe.title}}</p>
             <div id="edit_delete">
-                <button (click)="editRecipe(recipe.idrecipe)" class="edit">Edit/View</button>
                 <button (click)="deleteRecipe(recipe.idrecipe)" class="delete">Delete</button>
             </div>
         </div>

@@ -3,7 +3,7 @@
     flex-direction: column;
 
     padding: 25px;
-    margin: 0px 200px 0px 200px;
+    margin: -10px 200px 0px 200px;
 }
 
 #title_container {
@@ -40,6 +40,13 @@
 
 .recipe {
     font-size: 20px;
+    padding: 2px;
+}
+
+.recipe:hover {
+    cursor: pointer;
+    background-color: lightblue;
+    border-radius: 5px;
 }
 
 .single_recipe {
