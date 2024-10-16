@@ -21,7 +21,8 @@ import { HttpErrorResponse, HttpResponse } from '@angular/common/http';
   styleUrl: './recipes.component.css'
 })
 export class RecipesComponent {
-  recipes$!: Observable<Recipe[]>;
+  private recipesSubject = new BehaviorSubject<Recipe[]>([]);
+  recipes$ = this.recipesSubject.asObservable();
   filteredRecipes$!: Observable<Recipe[]>;
   private searchSubject = new Subject<string>();
   showModal = false;
@@ -31,7 +32,10 @@ export class RecipesComponent {
 
   ngOnInit(): void {
     const email = this.userService.getEmail();
-    this.recipes$ = this.recipeService.fetchAll(email);
+    // this.recipes$ = this.recipeService.fetchAll(email);
+    this.recipeService.fetchAll(email).subscribe(
+      recipes => this.recipesSubject.next(recipes)
+    );
 
     const search$ = this.searchSubject.pipe(
       startWith(''),
@@ -76,27 +80,30 @@ export class RecipesComponent {
     this.recipeToDelete = idrecipe; // Set the recipe ID for deletion
     this.showModal = true; // Show the confirmation modal
   }
-  
+
   onConfirmDelete() {
     if (this.recipeToDelete !== null) {
       this.recipeService.deleteRecipe(this.recipeToDelete).pipe(
-        switchMap(response => {
-          console.log('Recipe successfully deleted:', response);
-          return this.recipeService.fetchAll(this.userService.getEmail()); // Fetch updated recipes
-        }),
+        switchMap(() => this.recipeService.fetchAll(this.userService.getEmail())),
         catchError(error => {
           console.error('Error deleting recipe:', error);
-          throw error; // Rethrow the error to propagate it to the next error handler
+          return throwError(() => error);
         })
-      )
-      .subscribe(recipes => {
-        console.log('Updated recipes list:', recipes);
-        this.recipes$ = this.recipeService.fetchAll(this.userService.getEmail()); // Update the recipes observable with the new list
-        this.showModal = false; // Close the modal
-        this.recipeToDelete = null; // Clear the recipe ID
+      ).subscribe({
+        next: (recipes) => {
+          // Update the BehaviorSubject with new recipes
+          this.recipesSubject.next(recipes);
+          this.showModal = false;
+          this.recipeToDelete = null;
+        },
+        error: (error) => {
+          console.error('Error updating recipes:', error);
+          // Handle error (maybe show an error message to user)
+        }
       });
     }
   }
+
   onCancelDelete() {
     this.showModal = false; // Close the modal without deleting
     this.recipeToDelete = null; // Clear the recipe ID
