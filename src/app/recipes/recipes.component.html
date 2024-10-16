@@ -2,9 +2,13 @@
 <div id="recipes_container">
     <div id="title_container">
         <h2 class="recipe_title">Your Recipes</h2>
-        <span routerLink='/new_recipe' class="add_recipe">+</span>
+        <div id="options_container">
+            <input type="text" (input)="onSearch($event)" (keyup)="onSearchKeyup($event)"  class="searchbar" />
+            <span class="add_recipe">...</span>
+            <span routerLink='/new_recipe' class="add_recipe">+</span>
+        </div>
     </div>
-    <div *ngFor="let recipe of recipes$ | async">
+    <div *ngFor="let recipe of filteredRecipes$ | async">
         <div class="single_recipe">
             <p *ngIf="recipe" (click)="editRecipe(recipe.idrecipe)" class="recipe">{{recipe.title}}</p>
             <div id="edit_delete">
@@ -13,6 +17,7 @@
         </div>
     </div>
 </div>
+
 
 <app-confirm-dialog *ngIf="showModal" 
                     (confirmed)="onConfirmDelete()" 
